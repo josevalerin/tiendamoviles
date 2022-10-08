@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/addTiendaFragment"
         android:name="com.tienda.ui.tienda.AddTiendaFragment"
-        android:label="fragment_add_tienda"
+        android:label="@string/bt_add_lugar"
         tools:layout="@layout/fragment_add_tienda" >
         <action
             android:id="@+id/action_addTiendaFragment_to_nav_tienda"

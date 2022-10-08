@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.tienda.R
+import com.tienda.adapter.TiendaAdapter
 import com.tienda.databinding.FragmentTiendaBinding
 import com.tienda.viewmodel.TiendaViewModel
 
@@ -31,6 +33,17 @@ class TiendaFragment : Fragment() {
         binding.addLugarButton.setOnClickListener{
             findNavController().navigate(R.id.action_nav_tienda_to_addTiendaFragment)
         }
+
+        //se genera el recicler view para ver la informacion...
+        val tiendaAdapter= TiendaAdapter()
+        val reciclador = binding.reciclador
+        reciclador.adapter = tiendaAdapter
+        reciclador.layoutManager= LinearLayoutManager(requireContext())
+
+        tiendaViewModel.getTiendas.observe( viewLifecycleOwner) {
+                tiendas -> tiendaAdapter.setListaTiendas(tiendas)
+        }
+
         return binding.root
     }
 

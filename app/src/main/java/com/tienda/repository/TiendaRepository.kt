@@ -10,7 +10,7 @@ class TiendaRepository (private val tiendaDao: TiendaDao){
 
         if(tienda.id==0){
 
-            //Es un lugar nuevo...
+            //Es un tienda nuevo...
             tiendaDao.addTienda(tienda)
         }else {
             tiendaDao.addTienda(tienda)

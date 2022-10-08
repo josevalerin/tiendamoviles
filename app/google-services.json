@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "882627422012",
+    "project_id": "tienda-fad07",
+    "storage_bucket": "tienda-fad07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882627422012:android:d9c43a2dcd0fb14f882039",
+        "android_client_info": {
+          "package_name": "com.tienda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882627422012-34sf7q943ggodn4g7q83ga85hae32if0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2yQsDBLS9mKKftc8Lha87rhd9Tbz2fiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882627422012-34sf7q943ggodn4g7q83ga85hae32if0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

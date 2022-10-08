@@ -1,13 +1,32 @@
 package com.tienda.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.tienda.data.TiendaDatabase
+import com.tienda.model.Tienda
+import com.tienda.repository.TiendaRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class TiendaViewModel : ViewModel() {
+class TiendaViewModel (application: Application) : AndroidViewModel(application) {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is tienda Fragment"
+    private val tiendaRepository: TiendaRepository
+    val getTiendas: LiveData<List<Tienda>>
+
+    init {
+
+        val tiendaDao = TiendaDatabase.getDatabase(application).tiendaDao()
+        tiendaRepository = TiendaRepository(tiendaDao)
+        getTiendas = tiendaRepository.getTiendas
     }
-    val text: LiveData<String> = _text
+    fun saveTienda(tienda: Tienda){
+        viewModelScope.launch(Dispatchers.IO) {
+            tiendaRepository.saveTienda(tienda) }
+    }
+    fun deleteTienda(tienda: Tienda){
+        viewModelScope.launch(Dispatchers.IO) {
+            tiendaRepository.deleteTienda(tienda) }
+    }
+
+
 }
